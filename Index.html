@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form Toggle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Simple transition for the side form */
+        #sideForm {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <!-- Open Form Button -->
+    <button 
+        onclick="openForm()"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+    >
+        Open Form
+    </button>
+
+    <!-- Side Form (hidden by default) -->
+    <div 
+        id="sideForm" 
+        class="fixed top-0 -right-80 w-80 h-full bg-white shadow-lg"
+    >
+        <form class="p-4">
+            <h2 class="text-xl font-bold mb-4">Contact Form</h2>
+            
+            <div class="mb-4">
+                <label class="block mb-1">Name</label>
+                <input 
+                    type="text" 
+                    class="w-full px-3 py-2 border rounded"
+                    placeholder="Your name"
+                >
+            </div>
+            
+            <div class="mb-4">
+                <label class="block mb-1">Email</label>
+                <input 
+                    type="email" 
+                    class="w-full px-3 py-2 border rounded"
+                    placeholder="your@email.com"
+                >
+            </div>
+            
+            <button 
+                type="button" 
+                onclick="closeForm()"
+                class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded mr-2"
+            >
+                Close
+            </button>
+            
+            <button 
+                type="submit" 
+                class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+            >
+                Submit
+            </button>
+        </form>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById("sideForm").classList.replace('-right-80', 'right-0');
+        }
+        
+        function closeForm() {
+            document.getElementById("sideForm").classList.replace('right-0', '-right-80');
+        }
+    </script>
+</body>
+</html>
